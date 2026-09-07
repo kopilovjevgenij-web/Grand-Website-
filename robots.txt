@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grand-daugavpils.lv/sitemap.xml
