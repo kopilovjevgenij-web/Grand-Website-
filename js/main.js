@@ -75,6 +75,12 @@ function initForm(form) {
   var statusEl = form.querySelector("[data-form-status]");
   var whatsappBtn = form.querySelector("[data-whatsapp-fallback]");
 
+  // Рабочая ссылка на WhatsApp сразу при загрузке страницы (ещё без данных формы),
+  // чтобы кнопка не была "мёртвой", если её нажали до отправки формы.
+  if (whatsappBtn) {
+    whatsappBtn.setAttribute("href", buildWhatsAppLink(form, {}));
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var isValid = validateForm(form);
