@@ -7,8 +7,8 @@
 <div class="ph ph-photo ...><img src="/images/ИМЯ.jpg" alt="…" loading="lazy"></div>
 ```
 (добавьте класс `ph-photo` к тем же классам, что были у заглушки — `ph-wide`/`ph-tall`/
-`ph-square` и т.д. остаются). Так уже сделано для `hotel-room-1.jpg` — можно смотреть
-на этот блок в `index.html`/`hotel.html` как на образец.
+`ph-square` и т.д. остаются). Так уже сделано для `hotel-room-1-1.jpg` и т.д. — можно
+смотреть на этот блок в `index.html`/`hotel.html` как на образец.
 
 Рекомендуемый формат: JPG/WebP, широкая сторона 1600–2000px, тёмно-золотая цветокоррекция.
 
@@ -28,9 +28,9 @@
 - `dish-caesar-shrimp.jpg` — Caesar с креветками
 - `lunch-set.jpg` — комплексный обед
 - `bar-cocktails.jpg` — коктейли бара
-- ✅ `hotel-room-1.jpg` — **уже реальное фото** (номер 1)
-- `hotel-room-2.jpg` — номер 2, ждём фото
-- `hotel-lobby.jpg`, `hotel-exterior.jpg` — лобби и фасад отеля
+- ✅ `hotel-room-1-1.jpg`, `hotel-room-1-2.jpg`, `hotel-room-1-3.jpg` — **уже реальные фото** (номер 1, галерея из 3 фото)
+- `hotel-room-2-1.jpg`, `hotel-room-2-2.jpg`, `hotel-room-2-3.jpg` — номер 2, ждём 3 фото
+- `hotel-exterior.jpg` — фасад отеля
 - `kids-area.jpg` — детская зона / батут
 - `gallery-1.jpg` … `gallery-8.jpg` — фото для общей галереи
 
