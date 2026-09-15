@@ -78,6 +78,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var track = document.querySelector("[data-reviews-track]");
   if (!track) return;
 
+  var RATING_LABEL = {
+    lv: function (n) { return "Vērtējums " + n + " no 5"; },
+    ru: function (n) { return "Оценка " + n + " из 5"; },
+    en: function (n) { return "Rating " + n + " out of 5"; },
+  };
+  var lang = RATING_LABEL[document.documentElement.lang] ? document.documentElement.lang : "ru";
+
   reviews.forEach(function (review) {
     var card = document.createElement("article");
     card.className = "review-card";
@@ -86,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     stars.className = "review-stars";
     var rating = Math.max(0, Math.min(5, Math.round(review.rating || 0)));
     stars.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
-    stars.setAttribute("aria-label", "Оценка " + rating + " из 5");
+    stars.setAttribute("aria-label", RATING_LABEL[lang](rating));
 
     var text = document.createElement("p");
     text.className = "review-text";
