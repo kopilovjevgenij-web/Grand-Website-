@@ -20,7 +20,7 @@
 - ✅ `bar-1.jpg` — **уже реальное фото** (бар)
 - ✅ `banquet-hall.jpg`, `banquet-hall-2.jpg` — **уже реальные фото** (розовый зал для банкетов)
 - ✅ `banquet-table-1.jpg`, `banquet-table-2.jpg` — **уже реальные фото** (накрытый банкетный стол)
-- `terrace-1.jpg` — терраса
+- ✅ `terrace-1.jpg` — **уже реальное фото** (терраса)
 - `dish-salmon.jpg` — филе лосося
 - `dish-pork-skewer.jpg` — свиной шашлык
 - `dish-chicken-skewer.jpg` — куриный шашлык
@@ -32,7 +32,7 @@
 - ✅ `hotel-room-1-1.jpg`, `hotel-room-1-2.jpg`, `hotel-room-1-3.jpg` — **уже реальные фото** (номер 1, галерея из 3 фото)
 - ✅ `hotel-room-2-1.jpg`, `hotel-room-2-2.jpg`, `hotel-room-2-3.jpg` — **уже реальные фото** (номер 2, галерея из 3 фото)
 - ✅ `hotel-lobby.jpg` — **уже реальное фото** (общая зона отдыха)
-- `kids-area.jpg` — детская зона / батут
+- ✅ `kids-area.jpg` — **уже реальное фото** (летняя терраса с батутом)
 - ✅ `gallery-1.jpg` — **уже реальное фото** (ночная программа/сцена)
 - ✅ `gallery-2.jpg` — **уже реальное фото** (вход в GRAND)
 - `gallery-3.jpg` … `gallery-8.jpg` — фото для общей галереи
