@@ -57,12 +57,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * TODO (владелец сайта): подключите сервис приёма форм без бэкенда —
- * например Formspree (https://formspree.io) или Web3Forms (https://web3forms.com).
- * Вставьте свой endpoint / access key вместо пустой строки ниже.
- * Пока endpoint не указан, форма всегда предложит запасной вариант — написать в WhatsApp.
+ * ПРИЁМ ЗАЯВОК НА ПОЧТУ — сайт статический, без бэкенда, поэтому письма
+ * отправляет сторонний бесплатный сервис. Выберите ОДИН из двух вариантов:
+ *
+ * Вариант A — Web3Forms (быстрее всего, ~2 минуты, регистрация не нужна):
+ *   1. Откройте https://web3forms.com
+ *   2. Введите e-mail ресторана (grandrestaurathoteldpils@gmail.com) и
+ *      нажмите "Create Access Key"
+ *   3. В этот же e-mail придёт письмо с access key — скопируйте его и
+ *      вставьте в WEB3FORMS_ACCESS_KEY ниже (между кавычками)
+ *   Всё, больше ничего менять не нужно — FORM_ENDPOINT подключится сам.
+ *
+ * Вариант B — Formspree (https://formspree.io): зарегистрируйтесь, создайте
+ *   форму на тот же e-mail, скопируйте её endpoint вида
+ *   "https://formspree.io/f/xxxxxxx" и вставьте его в FORM_ENDPOINT ниже
+ *   (тогда WEB3FORMS_ACCESS_KEY оставьте пустым).
+ *
+ * Пока ни один вариант не настроен — заявки не теряются: форма показывает
+ * сообщение и предлагает отправить их через WhatsApp (кнопка уже с данными).
  */
-var FORM_ENDPOINT = ""; // например: "https://formspree.io/f/xxxxxxx" или "https://api.web3forms.com/submit"
+var WEB3FORMS_ACCESS_KEY = ""; // сюда — access key с web3forms.com
+var FORM_ENDPOINT = WEB3FORMS_ACCESS_KEY
+  ? "https://api.web3forms.com/submit"
+  : ""; // или вставьте сюда endpoint Formspree, например "https://formspree.io/f/xxxxxxx"
 
 /**
  * Номер WhatsApp сформирован из опубликованного телефона ресторана (+371 22033449).
@@ -136,11 +153,20 @@ function initForm(form) {
       return;
     }
 
+    var payload = data;
+    if (WEB3FORMS_ACCESS_KEY) {
+      payload = Object.assign({}, data, {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: form.dataset.whatsappTitle || T.whatsappTitleFallback,
+        from_name: "GRAND — сайт",
+      });
+    }
+
     setStatus(statusEl, T.sending, false);
     fetch(FORM_ENDPOINT, {
       method: "POST",
       headers: { Accept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
     })
       .then(function (res) {
         if (res.ok) {
