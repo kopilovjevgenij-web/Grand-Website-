@@ -71,6 +71,44 @@ var FORM_ENDPOINT = ""; // например: "https://formspree.io/f/xxxxxxx" и
  */
 var WHATSAPP_NUMBER = "37122033449";
 
+/**
+ * Тексты форм на трёх языках сайта. Язык страницы берётся из <html lang="...">.
+ */
+var I18N = {
+  lv: {
+    fieldError: "Pārbaudiet šo lauku",
+    requiredFields: "Lūdzu, aizpildiet obligātos laukus.",
+    formSoon:
+      "Pieteikumu pieņemšanas forma drīzumā sāks darboties. Lūdzu, nosūtiet pieteikumu caur WhatsApp — poga zemāk jau ir aizpildīta ar jūsu datiem.",
+    sending: "Nosūtām pieteikumu…",
+    sent: "Paldies! Pieteikums nosūtīts, mēs sazināsimies ar jums tuvākajā laikā.",
+    sendFailed: "Neizdevās nosūtīt formu automātiski. Lūdzu, izmantojiet WhatsApp pogu zemāk.",
+    whatsappTitleFallback: "Pieteikums no GRAND mājaslapas",
+  },
+  ru: {
+    fieldError: "Проверьте это поле",
+    requiredFields: "Пожалуйста, заполните обязательные поля.",
+    formSoon:
+      "Форма приёма заявок скоро заработает. Пожалуйста, отправьте заявку через WhatsApp — кнопка ниже уже заполнена вашими данными.",
+    sending: "Отправляем заявку…",
+    sent: "Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.",
+    sendFailed: "Не удалось отправить форму автоматически. Пожалуйста, воспользуйтесь кнопкой WhatsApp ниже.",
+    whatsappTitleFallback: "Заявка с сайта GRAND",
+  },
+  en: {
+    fieldError: "Please check this field",
+    requiredFields: "Please fill in the required fields.",
+    formSoon:
+      "The request form will be live soon. Please send your request via WhatsApp — the button below is already filled in with your details.",
+    sending: "Sending your request…",
+    sent: "Thank you! Your request has been sent, we'll be in touch shortly.",
+    sendFailed: "Couldn't send the form automatically. Please use the WhatsApp button below.",
+    whatsappTitleFallback: "Request from the GRAND website",
+  },
+};
+var LANG = I18N[document.documentElement.lang] ? document.documentElement.lang : "ru";
+var T = I18N[LANG];
+
 function initForm(form) {
   var statusEl = form.querySelector("[data-form-status]");
   var whatsappBtn = form.querySelector("[data-whatsapp-fallback]");
@@ -85,7 +123,7 @@ function initForm(form) {
     e.preventDefault();
     var isValid = validateForm(form);
     if (!isValid) {
-      setStatus(statusEl, "Пожалуйста, заполните обязательные поля.", true);
+      setStatus(statusEl, T.requiredFields, true);
       return;
     }
 
@@ -94,15 +132,11 @@ function initForm(form) {
     if (whatsappBtn) whatsappBtn.setAttribute("href", waLink);
 
     if (!FORM_ENDPOINT) {
-      setStatus(
-        statusEl,
-        "Форма приёма заявок скоро заработает. Пожалуйста, отправьте заявку через WhatsApp — кнопка ниже уже заполнена вашими данными.",
-        false
-      );
+      setStatus(statusEl, T.formSoon, false);
       return;
     }
 
-    setStatus(statusEl, "Отправляем заявку…", false);
+    setStatus(statusEl, T.sending, false);
     fetch(FORM_ENDPOINT, {
       method: "POST",
       headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -110,18 +144,14 @@ function initForm(form) {
     })
       .then(function (res) {
         if (res.ok) {
-          setStatus(statusEl, "Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.", false);
+          setStatus(statusEl, T.sent, false);
           form.reset();
         } else {
           throw new Error("network");
         }
       })
       .catch(function () {
-        setStatus(
-          statusEl,
-          "Не удалось отправить форму автоматически. Пожалуйста, воспользуйтесь кнопкой WhatsApp ниже.",
-          true
-        );
+        setStatus(statusEl, T.sendFailed, true);
       });
   });
 }
@@ -149,7 +179,7 @@ function validateForm(form) {
     if (!fieldValid) {
       valid = false;
       if (group) group.classList.add("has-error");
-      if (errorEl) errorEl.textContent = field.dataset.errorMessage || "Проверьте это поле";
+      if (errorEl) errorEl.textContent = field.dataset.errorMessage || T.fieldError;
     } else {
       if (group) group.classList.remove("has-error");
       if (errorEl) errorEl.textContent = "";
@@ -169,7 +199,7 @@ function collectFormData(form) {
 
 function buildWhatsAppLink(form, data) {
   var lines = [];
-  var title = form.dataset.whatsappTitle || "Заявка с сайта GRAND";
+  var title = form.dataset.whatsappTitle || T.whatsappTitleFallback;
   lines.push(title + ":");
   form.querySelectorAll("[name]").forEach(function (field) {
     var label = field.closest(".form-group")
