@@ -18,7 +18,8 @@
 - `og-cover.jpg` — обложка для соцсетей (Open Graph), 1200×630
 - ✅ `restaurant-hall-1.jpg` — **уже реальное фото** (основной зал)
 - ✅ `bar-1.jpg` — **уже реальное фото** (бар)
-- `banquet-hall.jpg` — банкетный/розовый зал
+- ✅ `banquet-hall.jpg`, `banquet-hall-2.jpg` — **уже реальные фото** (розовый зал для банкетов)
+- ✅ `banquet-table-1.jpg`, `banquet-table-2.jpg` — **уже реальные фото** (накрытый банкетный стол)
 - `terrace-1.jpg` — терраса
 - `dish-salmon.jpg` — филе лосося
 - `dish-pork-skewer.jpg` — свиной шашлык
