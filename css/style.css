@@ -755,8 +755,11 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   border-radius: 50%;
   width: 38px; height: 38px;
   display: flex; align-items: center; justify-content: center;
+  color: var(--color-gold);
+  transition: background-color 0.2s, transform 0.2s;
 }
-.footer-social a:hover { background: rgba(201,162,39,0.15); }
+.footer-social a svg { width: 18px; height: 18px; }
+.footer-social a:hover { background: rgba(201,162,39,0.15); transform: translateY(-2px); }
 .footer-requisites {
   border-top: 1px solid rgba(201,162,39,0.15);
   padding-top: 18px;
