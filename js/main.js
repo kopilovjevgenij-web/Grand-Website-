@@ -65,10 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
 var FORM_ENDPOINT = ""; // например: "https://formspree.io/f/xxxxxxx" или "https://api.web3forms.com/submit"
 
 /**
- * TODO: замените на реальный номер WhatsApp заведения в формате
- * без плюса и пробелов (страна+код города+номер), например "37122033449".
+ * Номер WhatsApp сформирован из опубликованного телефона ресторана (+371 22033449).
+ * TODO: перед запуском проверьте, что этот номер подключён к WhatsApp Business —
+ * если WhatsApp работает на другом номере, замените значение ниже.
  */
-var WHATSAPP_NUMBER = "371XXXXXXXX";
+var WHATSAPP_NUMBER = "37122033449";
 
 function initForm(form) {
   var statusEl = form.querySelector("[data-form-status]");
