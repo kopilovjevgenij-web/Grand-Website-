@@ -23,7 +23,7 @@
 - `dish-caesar-shrimp.jpg` — Caesar с креветками
 - `lunch-set.jpg` — комплексный обед
 - `bar-cocktails.jpg` — коктейли бара
-- `hotel-room-1.jpg`, `hotel-room-2.jpg`, `hotel-suite.jpg` — номера отеля
+- `hotel-room-1.jpg`, `hotel-room-2.jpg` — номера отеля (сейчас в отеле 2 номера)
 - `hotel-lobby.jpg`, `hotel-exterior.jpg` — лобби и фасад отеля
 - `kids-area.jpg` — детская зона / батут
 - `gallery-1.jpg` … `gallery-8.jpg` — фото для общей галереи
