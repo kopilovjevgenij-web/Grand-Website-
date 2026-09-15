@@ -373,6 +373,29 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 @media (min-width: 1024px) { .card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); } }
 @media (min-width: 900px) { .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
 
+/* "Хиты меню" on mobile only: horizontal snap-scroll carousel, capped to 4 cards.
+   Scoped to .menu-hits-grid so it never touches .card-grid used by other sections
+   (banquet packages, etc.) or the desktop layout of this same block. */
+@media (max-width: 767px) {
+  .menu-hits-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px;
+    padding: 0 20px 6px;
+  }
+  .menu-hits-grid .menu-card {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
+  }
+  /* show only the first 4 dishes on mobile so "Банкеты" stays closer to the top of the scroll */
+  .menu-hits-grid .menu-card:nth-child(n + 5) {
+    display: none;
+  }
+}
+
 .menu-card {
   background: var(--color-black);
   color: var(--color-cream);
@@ -391,22 +414,34 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 }
 .menu-card-price.tbd { color: var(--color-muted-on-dark); font-family: var(--font-body); font-size: 0.85rem; font-style: italic; }
 
+/* short "what's in it" line under a dish name — used on menu-card previews and full menu rows */
+.dish-description {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--color-muted-on-light);
+}
+.menu-card-body .dish-description { color: var(--color-muted-on-dark); }
+
 /* ---------- menu table (menu.html) ---------- */
 .menu-list { display: grid; gap: 0; margin-top: 6px; }
 .menu-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 16px;
   padding: 16px 0;
   border-bottom: 1px solid rgba(201,162,39,0.22);
 }
+.menu-row .name-block { display: flex; flex-direction: column; }
 .menu-row .name { font-weight: 600; }
+.menu-row .name-block .dish-description { margin: 4px 0 0; }
 .menu-row .price {
   white-space: nowrap;
   font-family: var(--font-heading);
   color: var(--color-gold);
   font-size: 1.05rem;
+  padding-top: 2px;
 }
 .menu-row .price.tbd {
   font-family: var(--font-body);
@@ -416,6 +451,7 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 }
 .section-dark .menu-row { border-bottom-color: rgba(201,162,39,0.25); }
 .section-dark .menu-row .price.tbd { color: var(--color-muted-on-dark); }
+.section-dark .dish-description { color: var(--color-muted-on-dark); }
 .menu-group-title {
   font-size: 1.1rem;
   color: var(--color-gold);
@@ -497,6 +533,70 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   transition: background var(--transition), transform var(--transition);
 }
 .delivery-buttons a:hover { background: rgba(201,162,39,0.12); transform: translateY(-2px); }
+
+/* ---------- reviews (Google) ---------- */
+/* mobile-first: horizontal snap-scroll carousel; becomes a 3-column grid at >=768px */
+.reviews-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  margin: 0 -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.reviews-track .review-card {
+  flex: 0 0 82%;
+  scroll-snap-align: center;
+}
+@media (min-width: 480px) {
+  .reviews-track .review-card { flex-basis: 60%; }
+}
+@media (min-width: 768px) {
+  .reviews-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+  .reviews-track .review-card { flex: initial; }
+}
+.review-card {
+  background: var(--color-black);
+  color: var(--color-cream);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.review-stars {
+  color: var(--color-gold-light);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+.review-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-cream);
+  flex: 1;
+}
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--color-muted-on-dark);
+  border-top: 1px solid rgba(201,162,39,0.18);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+.review-author { font-weight: 600; color: var(--color-cream); }
 
 /* ---------- gallery ---------- */
 .gallery-grid {
