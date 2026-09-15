@@ -834,6 +834,7 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 /* ---------- utility ---------- */
 .text-center { text-align: center; }
 .mt-lg { margin-top: 40px; }
+.mb-lg { margin-bottom: 40px; }
 .tag-note {
   display: inline-block;
   margin-top: 10px;
