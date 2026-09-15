@@ -162,9 +162,8 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   font-family: var(--font-heading);
   font-size: 1.5rem;
   letter-spacing: 0.12em;
-  color: var(--color-cream);
+  color: var(--color-gold);
 }
-.brand span { color: var(--color-gold); }
 .nav-toggle {
   display: flex;
   flex-direction: column;
@@ -278,8 +277,8 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   font-size: clamp(3rem, 12vw, 6.5rem);
   letter-spacing: 0.08em;
   margin-bottom: 10px;
+  color: var(--color-gold);
 }
-.hero-content .brand-xl span { color: var(--color-gold); }
 .hero-sub {
   font-size: clamp(1rem, 2.2vw, 1.3rem);
   color: var(--color-muted-on-dark);
@@ -701,7 +700,7 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   margin-bottom: 34px;
 }
 @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; } }
-.footer-brand { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-cream); margin-bottom: 10px; }
+.footer-brand { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-gold); margin-bottom: 10px; }
 .footer-col h4 {
   color: var(--color-cream);
   font-family: var(--font-body);
