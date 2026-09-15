@@ -16,8 +16,8 @@
 
 - `hero-bg.jpg` — фон героя на главной странице
 - `og-cover.jpg` — обложка для соцсетей (Open Graph), 1200×630
-- `restaurant-hall-1.jpg` — основной зал
-- `bar-1.jpg` — бар
+- ✅ `restaurant-hall-1.jpg` — **уже реальное фото** (основной зал)
+- ✅ `bar-1.jpg` — **уже реальное фото** (бар)
 - `banquet-hall.jpg` — банкетный/розовый зал
 - `terrace-1.jpg` — терраса
 - `dish-salmon.jpg` — филе лосося
@@ -26,13 +26,15 @@
 - `dish-pasta-shrimp.jpg` — паста с креветками
 - `dish-schnitzel.jpg` — горячий шницель в блине
 - `dish-caesar-shrimp.jpg` — Caesar с креветками
-- `lunch-set.jpg` — комплексный обед
+- ✅ `lunch-set.jpg` — **уже реальное фото** (комплексный обед)
 - `bar-cocktails.jpg` — коктейли бара
 - ✅ `hotel-room-1-1.jpg`, `hotel-room-1-2.jpg`, `hotel-room-1-3.jpg` — **уже реальные фото** (номер 1, галерея из 3 фото)
 - ✅ `hotel-room-2-1.jpg`, `hotel-room-2-2.jpg`, `hotel-room-2-3.jpg` — **уже реальные фото** (номер 2, галерея из 3 фото)
 - ✅ `hotel-lobby.jpg` — **уже реальное фото** (общая зона отдыха)
 - `kids-area.jpg` — детская зона / батут
-- `gallery-1.jpg` … `gallery-8.jpg` — фото для общей галереи
+- ✅ `gallery-1.jpg` — **уже реальное фото** (ночная программа/сцена)
+- ✅ `gallery-2.jpg` — **уже реальное фото** (вход в GRAND)
+- `gallery-3.jpg` … `gallery-8.jpg` — фото для общей галереи
 
 Эта папка (кроме `README.md`) отслеживается через `.gitkeep`, чтобы структура
 сохранилась в репозитории и до появления реальных фото.
