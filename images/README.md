@@ -29,7 +29,7 @@
 - `lunch-set.jpg` — комплексный обед
 - `bar-cocktails.jpg` — коктейли бара
 - ✅ `hotel-room-1-1.jpg`, `hotel-room-1-2.jpg`, `hotel-room-1-3.jpg` — **уже реальные фото** (номер 1, галерея из 3 фото)
-- `hotel-room-2-1.jpg`, `hotel-room-2-2.jpg`, `hotel-room-2-3.jpg` — номер 2, ждём 3 фото
+- ✅ `hotel-room-2-1.jpg`, `hotel-room-2-2.jpg`, `hotel-room-2-3.jpg` — **уже реальные фото** (номер 2, галерея из 3 фото)
 - `hotel-exterior.jpg` — фасад отеля
 - `kids-area.jpg` — детская зона / батут
 - `gallery-1.jpg` … `gallery-8.jpg` — фото для общей галереи
