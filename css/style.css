@@ -363,6 +363,11 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   opacity: 0.75;
 }
 .ph.ph-wide { aspect-ratio: 16 / 10; }
+/* реальное фото вместо заглушки: добавьте класс ph-photo и замените
+   содержимое .ph на <img src="/images/файл.jpg" alt="..." loading="lazy"> */
+.ph-photo { background: none; border-color: rgba(201,162,39,0.35); }
+.ph-photo::before { display: none; }
+.ph-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ph.ph-square { aspect-ratio: 1 / 1; }
 .ph.ph-tall { aspect-ratio: 3 / 4; }
 
