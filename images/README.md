@@ -27,6 +27,8 @@
 - `dish-pasta-shrimp.jpg` — паста с креветками
 - `dish-schnitzel.jpg` — горячий шницель в блине
 - `dish-caesar-shrimp.jpg` — Caesar с креветками
+- ✅ `dish-pork-ribeye.jpg` — **уже реальное фото** (свиной стейк Ribeye, добавлена карточка в "хиты меню")
+- ✅ `dish-caesar-chicken.jpg` — **уже реальное фото** (Caesar с курицей, добавлена карточка в "хиты меню")
 - ✅ `lunch-set.jpg` — **уже реальное фото** (комплексный обед)
 - `bar-cocktails.jpg` — коктейли бара
 - ✅ `hotel-room-1-1.jpg`, `hotel-room-1-2.jpg`, `hotel-room-1-3.jpg` — **уже реальные фото** (номер 1, галерея из 3 фото)
